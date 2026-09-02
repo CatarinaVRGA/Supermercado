@@ -1,0 +1,8 @@
+{
+  "name": "ifto/supermercado",
+  "autoload": {
+    "psr-4": {
+      "APP\\": "app/"
+    }
+  }
+}
