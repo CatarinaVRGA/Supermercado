@@ -29,6 +29,19 @@ class DataBase
     {
         $connection = new PDO('mysql:host=' . self::HOST . ';dbname=' . self::DBNAME, self::USER, self::PASSWORD);
     }
+
+    public function execute($query, $values){
+        try{
+            echo "<pre>";
+            print_r($query);
+            echo "</pre>";
+        }catch(PDOException $e){
+            die('ERRO: '.$e);
+        }
+
+      
+    }
+
     //metodo que insere dados no banco
     public function insert($array){
         //extrair as chaves do array
@@ -36,8 +49,8 @@ class DataBase
         //criar um array com valores = ?
         $binds = array_pad([], count($array), '?');
         //monta a query
-        $query = 'INSERT INTO ' . $this->table . ' (' . implode(', ', $fields) . ') 
-        VALUES (' . implode(', ', $binds) . ')';
+        $query = 'INSERT INTO ' .$this->table.' (' . implode(', ', $fields) . ') 
+        VALUES(' . implode(', ', $binds) . ')';
         //executa a query
         $this->execute($query, array_values($array));
         return $this->connection->lasInsertId();
