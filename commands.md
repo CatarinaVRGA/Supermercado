@@ -14,4 +14,4 @@ realizar o push
 
 git push origin
 
-realizar o push no main git push origi main
+realizar o push no main git push origin main
